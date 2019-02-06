@@ -661,14 +661,13 @@ export class VisTimelineService {
    *
    * @memberOf VisTimelineService
    */
-   public zoomIn (visTimeline: string, percentage: number) {
+  public zoomIn(visTimeline: string, percentage: number) {
     if (this.timelines[visTimeline]) {
       return this.timelines[visTimeline].zoomIn(percentage);
-    }
-    else {
+    } else {
       throw new Error(this.doesNotExistError(visTimeline));
     }
-  };
+  }
 
   /**
    * Zoom out the Timeline.
@@ -680,14 +679,13 @@ export class VisTimelineService {
    *
    * @memberOf VisTimelineService
    */
-  public zoomOut (visTimeline: string, percentage: number) {
+  public zoomOut(visTimeline: string, percentage: number) {
     if (this.timelines[visTimeline]) {
       return this.timelines[visTimeline].zoomOut(percentage);
-    }
-    else {
+    } else {
       throw new Error(this.doesNotExistError(visTimeline));
     }
-  };
+  }
 
   /**
    * Destroy the Timeline.
