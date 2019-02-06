@@ -652,6 +652,44 @@ export class VisTimelineService {
   }
 
   /**
+   * Zoom in the Timeline.
+   *
+   * @param {string} visTimeline The timeline name/identifier.
+   * @param {string} percentage Percentage of zoom. Between 0 and 1.
+   *
+   * @throws {Error} Thrown when timeline does not exist.
+   *
+   * @memberOf VisTimelineService
+   */
+   public zoomIn (visTimeline: string, percentage: number) {
+    if (this.timelines[visTimeline]) {
+      return this.timelines[visTimeline].zoomIn(percentage);
+    }
+    else {
+      throw new Error(this.doesNotExistError(visTimeline));
+    }
+  };
+
+  /**
+   * Zoom out the Timeline.
+   *
+   * @param {string} visTimeline The timeline name/identifier.
+   * @param {string} percentage Percentage of zoom. Between 0 and 1.
+   *
+   * @throws {Error} Thrown when timeline does not exist.
+   *
+   * @memberOf VisTimelineService
+   */
+  public zoomOut (visTimeline: string, percentage: number) {
+    if (this.timelines[visTimeline]) {
+      return this.timelines[visTimeline].zoomOut(percentage);
+    }
+    else {
+      throw new Error(this.doesNotExistError(visTimeline));
+    }
+  };
+
+  /**
    * Destroy the Timeline.
    * The timeline is removed from memory.
    * All DOM elements and event listeners are cleaned up.
